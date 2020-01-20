@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
  */
 public class NotThrownExceptionCheck extends AbstractCheck {
 
-    public static final String MGS_NOT_THROWN = "not.throw.even.after.catched";
+    public static final String MGS_NOT_THROWN = "not.throw.even.after.catch";
 
     @Setter
     Pattern format;
