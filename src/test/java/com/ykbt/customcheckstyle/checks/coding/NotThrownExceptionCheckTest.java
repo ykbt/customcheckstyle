@@ -1,31 +1,34 @@
-package com.ykbt.customcheckstyle.checks.exception;
+package com.ykbt.customcheckstyle.checks.coding;
 
-import com.puppycrawl.tools.checkstyle.AbstractModuleTestSupport;
+import com.puppycrawl.tools.checkstyle.BaseCheckTestSupport;
 import com.puppycrawl.tools.checkstyle.DefaultConfiguration;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class NotThrownExceptionCheckTest extends AbstractModuleTestSupport {
+import java.io.File;
+import java.io.IOException;
+
+class NotThrownExceptionCheckTest extends BaseCheckTestSupport {
 
     @Override
-    protected String getPackageLocation() {
-        return "com/ykbt/customcheckstyle/checks/exception/notthrownexception";
+    protected String getPath(String filename) throws IOException {
+        return (new File("src/test/resources/com/ykbt/customcheckstyle/checks/coding/notthrownexception/" + filename)).getCanonicalPath();
     }
 
     @Test
     public void testGetRequiredTokens() {
         final NotThrownExceptionCheck checkObj = new NotThrownExceptionCheck();
         final int[] expected = {TokenTypes.LITERAL_CATCH};
-        Assertions.assertArrayEquals(expected, checkObj.getRequiredTokens(),"Default required tokens are invalid");
+        Assertions.assertArrayEquals(expected, checkObj.getRequiredTokens(), "Default required tokens are invalid");
     }
 
     @Test
     public void testSpecified()
             throws Exception {
         final DefaultConfiguration checkConfig =
-                createModuleConfig(NotThrownExceptionCheck.class);
+                createCheckConfig(NotThrownExceptionCheck.class);
         checkConfig.addAttribute("format", ".*");
 
         final String[] expected = {
@@ -38,7 +41,7 @@ class NotThrownExceptionCheckTest extends AbstractModuleTestSupport {
     public void testSpecifiedFormat()
             throws Exception {
         final DefaultConfiguration checkConfig =
-                createModuleConfig(NotThrownExceptionCheck.class);
+                createCheckConfig(NotThrownExceptionCheck.class);
         checkConfig.addAttribute("format", "NullPointerException");
 
         final String[] expected = {

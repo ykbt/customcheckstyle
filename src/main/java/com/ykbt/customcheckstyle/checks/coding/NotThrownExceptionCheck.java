@@ -1,4 +1,4 @@
-package com.ykbt.customcheckstyle.checks.exception;
+package com.ykbt.customcheckstyle.checks.coding;
 
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;

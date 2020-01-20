@@ -23,7 +23,7 @@
     <dependency>
       <groupId>com.puppycrawl.tools</groupId>
       <artifactId>checkstyle</artifactId>
-      <version>8.28</version>
+      <version>7.3</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
@@ -35,7 +35,7 @@
     <dependency>
       <groupId>com.puppycrawl.tools</groupId>
       <artifactId>checkstyle</artifactId>
-      <version>8.28</version>
+      <version>7.3</version>
       <classifier>tests</classifier>
       <scope>test</scope>
     </dependency>

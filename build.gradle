@@ -24,10 +24,10 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.10'
     annotationProcessor 'org.projectlombok:lombok:1.18.10'
 
-    implementation 'com.puppycrawl.tools:checkstyle:8.28'
+    implementation 'com.puppycrawl.tools:checkstyle:7.3'
 
     testImplementation 'junit:junit:4.12'
-    testImplementation 'com.puppycrawl.tools:checkstyle:8.28:tests'
+    testImplementation 'com.puppycrawl.tools:checkstyle:7.3:tests'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.2'
 
     testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.5.2'

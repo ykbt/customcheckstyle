@@ -1,15 +1,15 @@
-package com.ykbt.customcheckstyle.checks.exception.notthrownexception;
+package com.ykbt.customcheckstyle.checks.coding.notthrownexception;
 
 import java.io.FileReader;
 import java.io.IOException;
 
-public class SimpleThrown
+public class SimpleThrownFormat
 {
     private void throwIoException() {
         try {
             FileReader in = new FileReader("abc.txt");
         } catch (IOException ioe) {
-            throw new RuntimeException();
+            System.out.println(ioe.getStackTrace());
         } finally {
         }
     }
