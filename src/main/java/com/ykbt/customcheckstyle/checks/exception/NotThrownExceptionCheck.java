@@ -41,17 +41,17 @@ public class NotThrownExceptionCheck extends AbstractCheck {
     @Override
     public void visitToken(DetailAST ast) {
         // 対象となるexceptionか判定する
-        DetailAST type = ast.findFirstToken(TokenTypes.PARAMETER_DEF)
-                .findFirstToken(TokenTypes.TYPE)
-                .getFirstChild();
-        if (type == null) return;
+        DetailAST paramDef = ast.findFirstToken(TokenTypes.PARAMETER_DEF);
+        DetailAST type =  paramDef.findFirstToken(TokenTypes.TYPE);
+        DetailAST typeName = type.getFirstChild();
 
         // 対象となるExceptionをキャッチしたのみに絞る
-        if (this.format.matcher(type.getText()).find()) {
+        if (this.format.matcher(typeName.getText()).find()) {
             // throwがあるかないかを確認する
-            if (ast.findFirstToken(TokenTypes.SLIST)
-                    .findFirstToken(TokenTypes.LITERAL_THROW) == null) {
-                log(ast, MGS_NOT_THROWN, type.getText());
+            DetailAST slist = ast.findFirstToken(TokenTypes.SLIST);
+
+            if (slist.findFirstToken(TokenTypes.LITERAL_THROW) == null) {
+                log(ast, MGS_NOT_THROWN, typeName.getText());
             }
         }
     }
